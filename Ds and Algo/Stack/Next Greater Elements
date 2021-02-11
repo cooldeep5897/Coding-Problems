@@ -1,0 +1,39 @@
+class Solution {
+    public int[] nextGreaterElements(int[] nums) {
+        int i=0,k=0;
+        int flag=0;
+        int ans[]=new int[nums.length];
+        while(i<nums.length){
+            int j;
+            if(i==nums.length-1){
+                j=0;
+            }
+            else{
+            j=i+1;
+            }
+            
+            while(j!=i){
+                 flag=0;
+                if(nums[j]>nums[i]){
+                    ans[k]=nums[j];
+                    k++;
+                    flag=1;
+                    break;
+                }
+                if(j==nums.length-1){
+                    j=0;
+                }
+                else{
+                    j++;
+                }
+                
+            }
+            if(flag==0){
+                    ans[k]=-1;
+                    k++;
+                }
+            i++;
+        }
+        return ans;
+    }
+}
