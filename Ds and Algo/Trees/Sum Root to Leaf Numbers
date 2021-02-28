@@ -1,0 +1,17 @@
+class Solution {
+    public int sumNumbers(TreeNode root) {
+        if(root==null) return 0;
+        int a=0,fin=0;
+        return check(root,a,fin);
+    }
+    public int check(TreeNode root,int sum,int fin){
+       if(root==null)return fin;
+        
+        sum=(sum*10)+root.val;
+        if(root.left==null && root.right==null ){fin=fin+sum;
+                                                return fin;}
+        int right=check(root.right,sum,fin);
+       int left= check(root.left,sum,fin);
+        return right+left;
+    }
+}
