@@ -1,0 +1,15 @@
+class Solution {
+    public int sumNumbers(TreeNode root) {
+        if(root==null) return 0;
+        if(root.left==null && root.right==null )return root.val;
+        return sumNumbers(root.left)+sumNumbers(root.right);
+    }
+    public int sum(TreeNode root, int sumleaf){
+        if(root==null) return root.val; 
+        if(root.left==null&&root.right==null)return sumleaf+root.val;
+        int l=sum(root.left ,sumleaf);
+        int r=sum(root.right,sumleaf);
+        return l+r;
+        
+    }
+}
