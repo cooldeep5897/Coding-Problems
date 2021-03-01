@@ -1,0 +1,22 @@
+class Solution {
+  int evsum=0,odsum=0;
+    public int rob(TreeNode root) {
+          int sum=0;
+          sum=house(root,1);
+       return sum;
+    }
+    
+    public int house(TreeNode root,int level){
+        if(root==null)return Math.max(evsum,odsum);
+        
+        if(level%2==0){
+            evsum=evsum+root.val;
+        }
+        else{
+            odsum=odsum+root.val;
+        }
+            house(root.left,level+1);
+            house(root.right,level+1);
+        return Math.max(evsum,odsum);
+    }
+}
