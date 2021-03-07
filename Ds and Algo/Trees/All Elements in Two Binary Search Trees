@@ -1,0 +1,16 @@
+class Solution {
+    public List<Integer> getAllElements(TreeNode root1, TreeNode root2) {
+        List<Integer> l1=new ArrayList<>();
+        func(root1,l1);
+        func(root2,l1);
+        Collections.sort(l1);
+        return l1;
+    }
+    public void func(TreeNode root, List<Integer> l1){
+        if(root==null)return;
+        
+        l1.add(root.val);
+        func(root.left,l1);
+        func(root.right,l1);
+    }
+}
