@@ -1,0 +1,45 @@
+class Solution {
+    public List<String> commonChars(String[] A) {
+         List<String> l1=new ArrayList<>();
+        if(A.length==0)return l1;
+       
+        Map<Character,Integer> map=new HashMap<>();
+        for(int g=0;g<A[0].length();g++){
+            if(map.containsKey(A[0].charAt(g))){
+                int val=map.get(A[0].charAt(g));
+                map.put(A[0].charAt(g),val+1);
+            }
+            else{
+                map.put(A[0].charAt(g),1);
+            }
+        }
+        for(String a:A){
+        Map<Character,Integer> map1=new HashMap<>();
+            for(int i=0;i<a.length();i++){
+               if(map1.containsKey(a.charAt(i))){
+                int val=map1.get(a.charAt(i));
+                map1.put(a.charAt(i),val+1);
+            }
+            else{
+                map1.put(a.charAt(i),1);
+            }
+            }
+            for(Character c:map.keySet()){
+                if(map1.containsKey(c)){
+                if(map.get(c)>map1.get(c)){
+                    map.put(c,map1.get(c));
+                }}
+                else{
+                    map.put(c,0);
+                }
+            }
+        }
+        for(Character c:map.keySet()){
+            int val=map.get(c);
+            for(int i=0;i<val;i++){
+                l1.add(c.toString());
+            }
+        }
+       return l1; 
+    }
+}
