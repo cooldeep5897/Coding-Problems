@@ -1,0 +1,26 @@
+class Solution {
+    public int superpalindromesInRange(String left, String right) {
+        long l=Long.parseLong(left);
+        long r=Long.parseLong(right);
+        if(l==r)return 0;
+        int count=0;
+        for(long i=l;i<=r;i++){
+            String s=Long.toString(i);
+            StringBuilder sb=new StringBuilder(s);
+            sb.reverse();
+            if(s.equals(sb.toString())){
+                double i1=Math.sqrt((double)i);
+                if(i1-Math.floor(i1)==0){
+                  long l1= Math.round(i1);
+                String s1=Long.toString(l1);
+                StringBuilder sb1=new StringBuilder(s1);
+                sb1.reverse();
+                    if(s1.equals(sb1.toString())){
+                        count++;
+                    }
+                }
+            }
+        }
+        return count;
+    }
+}
