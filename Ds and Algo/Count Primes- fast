@@ -1,0 +1,23 @@
+class Solution {
+    public int countPrimes(int n) {
+        int count=2,flag=0;
+            if(n<3)return 0;
+    if(n==3)return 1;
+    for(int i=4;i<n;i++) {
+    flag=0;
+    if(i%2!=0&&i%3!=0&&i%5!=0||i==5){
+    for(int j=2;j*j<=i;j++) {
+    if(i%j==0) {
+    flag=1;
+    break;
+    }
+    }
+    if(flag==0) {
+    count++;
+    }
+    }
+    }
+        return count;
+    }
+
+}
