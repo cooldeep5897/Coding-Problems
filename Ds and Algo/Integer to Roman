@@ -1,0 +1,93 @@
+class Solution {
+    public String intToRoman(int num) {
+        String rom="";
+        
+        if((num/1000)>0){
+            int M=num/1000;
+            int i=0;
+            while(i<M){
+                rom=rom+"M";
+                i++;
+            }
+        }
+        num=num%1000;
+        if((num/100)>0){
+            int D=num/100;
+            if(D==9){
+                rom=rom+"CM";
+            }
+            else if(D>4){
+                rom=rom+"D";
+              int C=D-5;
+                int i=0;
+                while(i<C){
+                    rom=rom+"C";
+                    i++;
+                }
+            }
+            else if(D==4){
+                rom=rom+"CD";
+            }
+            else{
+                int i=0;
+                while(i<D){
+                    rom=rom+"C";
+                    i++;
+                }
+            }
+        }
+        num=num%100;
+        if((num/10)>0){
+            int X=num/10;
+            if(X==9){
+                rom=rom+"XC";
+            }
+            else if(X>4){
+                rom=rom+"L";
+              int V=X-5;
+                int i=0;
+                while(i<V){
+                    rom=rom+"X";
+                    i++;
+                }
+            }
+            else if(X==4){
+                rom=rom+"XL";
+            }
+            else{
+                int i=0;
+                while(i<X){
+                    rom=rom+"X";
+                    i++;
+                }
+            }
+        }
+        num=num%10;
+        if((num)>0){
+            int V=num;
+            if(V==9){
+                rom=rom+"IX";
+            }
+            else if(V>4){
+                rom=rom+"V";
+              int I=V-5;
+                int i=0;
+                while(i<I){
+                    rom=rom+"I";
+                    i++;
+                }
+            }
+            else if(V==4){
+                rom=rom+"IV";
+            }
+            else{
+                int i=0;
+                while(i<V){
+                    rom=rom+"I";
+                    i++;
+                }
+            }
+        }
+        return rom;
+    }
+}
